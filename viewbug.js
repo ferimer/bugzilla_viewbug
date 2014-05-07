@@ -11,7 +11,7 @@ if (process.argv.length >= 3) {
 }
 
 function queryBug(bugNumber) {
-  console.log('Looking for bug ' + bugNumber);
+  console.log('Looking for bug ' + bugNumber + '...\n');
 
   req = https.request('https://bugzilla.mozilla.org/rest/bug/' + bugNumber, function(res) {
     var bugData = '';
@@ -40,7 +40,8 @@ function showBug(bugData) {
   if (process.argv[3] === '-d') {
     console.log(JSON.stringify(bugData.bugs[0],true,' ') + '\n\n');
   }
-  console.log('Bug number: ' + bugData.bugs[0].id);
+  var url = 'http://bugzilla.mozilla.org/' + bugData.bugs[0].id;
+  console.log('Bug number: ' + bugData.bugs[0].id + ' - ' + url);
   console.log('Summary: ' + bugData.bugs[0].summary);
   console.log('Status: ' + bugData.bugs[0].status + ' ' + bugData.bugs[0].resolution);
   console.log('Assigned to: ' + bugData.bugs[0].assigned_to);
