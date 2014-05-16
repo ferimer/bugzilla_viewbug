@@ -42,7 +42,7 @@ function showBug(bugData) {
   }
   var url = 'http://bugzilla.mozilla.org/' + bugData.bugs[0].id;
   console.log('Bug number: ' + bugData.bugs[0].id + ' - ' + url);
-  console.log('Summary: ' + bugData.bugs[0].summary);
+  console.log('Summary: Bug ' + bugData.bugs[0].id + ' - ' + bugData.bugs[0].summary);
   console.log('Status: ' + bugData.bugs[0].status + ' ' + bugData.bugs[0].resolution);
   console.log('Assigned to: ' + bugData.bugs[0].assigned_to);
   console.log('Created on: ' + bugData.bugs[0].creation_time);
